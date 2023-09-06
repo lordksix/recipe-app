@@ -1,4 +1,7 @@
-<div>
-  <h1 class="font-bold text-4xl">Foods#index</h1>
-  <p>Find me in app/views/foods/index.html.erb</p>
-</div>
+<h1 class="text-center">Welcome</h1>
+<% if @foods.empty? %>
+  <h1 class="text-center">There is no foods for now</h1>
+<% end %>
+<% @foods.each do |food| %>
+  <%= render 'shared/food_card', food: food %>
+<% end %>
