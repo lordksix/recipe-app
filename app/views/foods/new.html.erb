@@ -12,7 +12,7 @@
       </ul>
     </div>
   <% end %>
-  <%= form_with url: "/users/#{@current_user.id}/posts", model: @food, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
+  <%= form_with url: "/foods", model: @food, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'w-full' %>
