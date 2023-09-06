@@ -1,0 +1,8 @@
+<tr>
+  <td><%= food.name %></td>
+  <td><%= food.measurement_unit %></td>
+  <td><%= food.price %></td>
+  <td>
+    <%= link_to 'Delete', food_path(food.id), class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
+  </td>
+</tr>

@@ -3,13 +3,11 @@ class CreateFoods < ActiveRecord::Migration[7.0]
     create_table :foods do |t|
       t.string :name
       t.text :measurement_unit
-      t.decimal :price
-      t.text :quantity
-      t.integer :user_id
+      t.decimal :price, null: false, default: 0.0
+      t.decimal :quantity, null: false, default: 0.0
+      t.references :user, null: false, foreign_key: true
 
       t.timestamps
     end
-
-    add_index :foods, :user_id
   end
 end
