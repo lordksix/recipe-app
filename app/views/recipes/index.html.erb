@@ -8,7 +8,9 @@
             <div class="my-5 flex border-2 border-black">
                 <div class="w-full p-8 my-8">
                   <h2 class="font-bold"><%= link_to recipe.name , "recipes/#{recipe.id}"%></h2>
-                <button class="underline text-blue-950">REMOVE</button>
+                <button class="underline text-blue-950">
+                  <%= link_to 'REMOVE', recipe_path(recipe.id), class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
+                </button>
                 </div>
                 <div class="w-full p-8 my-8">
                     <p><%= recipe.description%></p>
