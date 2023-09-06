@@ -1,7 +1,7 @@
 <% if @recipes.empty? %>
   <h2 class="text-center">There is no Recipes for now</h2>
 <% end %>
-<div class="">
+<div>
     <ul>
         <% @recipes.each do |recipe| %>
           <li class="my-6">
@@ -11,7 +11,7 @@
                 <button class="underline text-blue-950">REMOVE</button>
                 </div>
                 <div class="w-full p-8 my-8">
-                    <p class=""><%= recipe.description%></p>
+                    <p><%= recipe.description%></p>
                 </div>
             </div>
           </li>
