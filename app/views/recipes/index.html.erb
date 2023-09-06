@@ -1,18 +1,18 @@
 <% if @recipes.empty? %>
   <h2 class="text-center">There is no Recipes for now</h2>
 <% end %>
-<div class=" bg-orange-500">
+<div class="">
     <ul>
         <% @recipes.each do |recipe| %>
-          <li>
-            <div>
-                <h2><%= link_to recipe.name , "recipes/#{recipe.id}"%></h2>
-                <div >
-                    <p><%= recipe.description%></p>
+          <li class="my-6">
+            <div class="my-5 flex border-2 border-black">
+                <div class="w-full p-8 my-8">
+                  <h2 class="font-bold"><%= link_to recipe.name , "recipes/#{recipe.id}"%></h2>
+                <button class="underline text-blue-950">REMOVE</button>
                 </div>
-                <%if can? :destroy , recipe%>
-                        <button><%= link_to 'REMOVE' , url_for(action: 'destroy' , id: recipe.id ) , data: {turbo_method: :delete}%></button>
-                <%end%>
+                <div class="w-full p-8 my-8">
+                    <p class=""><%= recipe.description%></p>
+                </div>
             </div>
           </li>
         <% end %>
