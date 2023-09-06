@@ -19,7 +19,7 @@ for user_position in 1..quantity_users do
     email: "email#{user_position}@email.com",
     password: "abcdef"
   )
-  temp_user.skip_confirmation!
+  #temp_user.skip_confirmation!
   temp_user.save!
   users << temp_user
 end
@@ -27,6 +27,7 @@ end
 for user_position in 0..(quantity_users - 1) do
   for food_position in 0..Random.rand(quantity_foods) do
     temp_food = Food.create!(
+      user: users[user_position],
       name: "Food ##{food_position + 1}",
       measurement_unit: "grams",
       price: 10.0,
