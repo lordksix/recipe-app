@@ -1,6 +1,9 @@
 <% if @recipes.empty? %>
   <h2 class="text-center">There is no Recipes for now</h2>
 <% end %>
+<div class="flex items-center justify-end">
+  <a href="/recipes/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add a Recipe</a>
+</div>
 <div>
     <ul>
         <% @recipes.each do |recipe| %>
