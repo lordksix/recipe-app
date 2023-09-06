@@ -11,12 +11,15 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    # @recipe = Recipe.find_by(id: params['id'])
-    # authorize! :destroy, @recipe
-    # @recipe.destroy
-    # redirect_to '/index'
     @current_user = current_user
     @current_user.recipes.destroy(params[:id])
     redirect_to '/recipes'
   end
+
+  def new
+    @recipe = Recipe.new
+    @current_user = current_user
+  end
+
+  
 end
