@@ -21,5 +21,16 @@ class RecipesController < ApplicationController
     @current_user = current_user
   end
 
+  def create
+    new_recipe = Recipe.new(recipe_params)
+    new_recipe.user = current_user
+    if new_recipe.save
+      flash[:sucess] = 'Recipe saved successfully'
+      redirect_to '/recipes'
+    else
+      flash[:error] = 'Error: Recipe could not be saved'
+    end
+  end
+
   
 end
