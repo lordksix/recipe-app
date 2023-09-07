@@ -1,0 +1,39 @@
+<% if user_signed_in? %>
+  <div class="flex flex-col justify-center w-full max-w-3xl gap-6 mx-auto align-center">
+  <h1 class="text-center">Add New Food</h1>
+  <% if @recipe_foods.errors.any? %>
+    <div class="post-errors-box">
+      <p><%= pluralize(@recipe_foods.errors.count, "error") %> found:</p>
+
+      <ul class="post-errors-ul">
+        <% @recipe_foods.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= form_with url: "/recipe_foods", model: @recipe_foods, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
+    <div class="flex flex-col w-full max-w-3xl">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'w-full' %>
+    </div>
+    <div class="flex flex-col w-full max-w-3xl">
+      <%= form.label :measurement_unit %>
+      <%= form.text_field :measurement_unit, class: 'w-full' %>
+    </div>
+    <div class="flex flex-col w-full max-w-3xl">
+      <%= form.label :quantity %>
+      <%= form.text_field :quantity, class: 'w-full' %>
+    </div>
+    <div class="flex flex-col w-full max-w-3xl">
+      <%= form.label :price %>
+      <%= form.text_field :price, class: 'w-full' %>
+    </div>
+    <div class="flex justify-center w-full max-w-3xl align-center">
+      <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>
+    </div>
+  <% end %>
+</div>
+<% else %>
+  <p>Please, sign in to create a food item</p>
+<% end %>
