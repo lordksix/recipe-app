@@ -6,12 +6,13 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
-
+Recipe.destroy_all
 Food.destroy_all
 User.destroy_all
 
 quantity_users = 10
 quantity_foods = 10
+quantity_recipes = 8
 users = []
 
 for user_position in 1..quantity_users do
@@ -34,7 +35,18 @@ for user_position in 0..(quantity_users - 1) do
       quantity: food_position
     )
   end
+  for food_position in 0..Random.rand(quantity_recipes) do
+    temp_food = Recipe.create!(
+      user: users[user_position],
+      name: "Recipe ##{food_position + 1}",
+      preparation_time: "1 hour",
+      cooking_time: "2.5 hours",
+      description: "This is the first one",
+      public: true
+    )
+  end
 end
 
 puts "Created #{User.count} users"
-puts "Created #{Food.count} posts"
+puts "Created #{Food.count} food items"
+puts "Created #{Recipe.count} recipes"
