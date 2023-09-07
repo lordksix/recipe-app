@@ -11,8 +11,8 @@ Food.destroy_all
 User.destroy_all
 
 quantity_users = 10
-quantity_foods = 10
-quantity_recipes = 8
+quantity_foods = 15
+quantity_recipes = 20
 users = []
 
 for user_position in 1..quantity_users do
@@ -36,13 +36,15 @@ for user_position in 0..(quantity_users - 1) do
     )
   end
   for food_position in 0..Random.rand(quantity_recipes) do
+    public = true
+    public = false if food_position.odd?
     temp_food = Recipe.create!(
       user: users[user_position],
       name: "Recipe ##{food_position + 1}",
       preparation_time: "1 hour",
       cooking_time: "2.5 hours",
       description: "This is the first one",
-      public: true
+      public: public
     )
   end
 end

@@ -1,0 +1,15 @@
+<% if @public_recipe.empty? %>
+  <h2 class="text-center">There is no public recipes for now</h2>
+<% end %>
+<div class="flex items-center justify-end">
+  <a href="/recipes/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add a Recipe</a>
+</div>
+<div>
+  <ul>
+    <% @public_recipe.each do |recipe| %>
+      <li class="my-6">
+        <%= render 'shared/public_recipe_card', recipe: recipe %>
+      </li>
+    <% end %>
+  </ul>
+</div>
