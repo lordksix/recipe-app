@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @current_user = current_user
+    @recipe_foods = @recipe.recipe_foods
+    # @current_user = current_user
   end
 
   def destroy
@@ -32,6 +33,12 @@ class RecipesController < ApplicationController
     else
       flash[:error] = 'Error: Recipe could not be saved'
     end
+  end
+
+  def update
+    @recipe = Recipe.find_by(id: params[:id])
+    @recipe.public = !@recipe.public
+    @recipe.save
   end
 
   private
