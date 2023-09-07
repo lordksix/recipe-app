@@ -44,7 +44,7 @@ for user_position in 0..(quantity_users - 1) do
       preparation_time: "1 hour",
       cooking_time: "2.5 hours",
       description: "This is the first one",
-      public: true
+      public: public
     )
   end
 end

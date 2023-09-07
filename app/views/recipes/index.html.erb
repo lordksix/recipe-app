@@ -7,7 +7,9 @@
 <div>
     <ul>
         <% @recipes.each do |recipe| %>
-          <%= render 'shared/recipe_card', recipe: recipe %>
+          <li class="my-6">
+            <%= render 'shared/recipe_card', recipe: recipe %>
+          </li>
         <% end %>
     </ul>
 </div>

@@ -1,11 +1,9 @@
-<li class="my-6">
-  <div class="flex my-5 border-2 border-black">
-      <div class="w-full p-8 my-8">
-        <h2 class="font-bold"><%= link_to recipe.name , "recipes/#{recipe.id}"%></h2>
-        <p>By: <%= recipe.user.email%></p>
-      </div>
-      <div class="w-full p-8 my-8">
-        <p><%= recipe.description%></p>
-      </div>
-  </div>
-</li>
+<div class="flex my-5 border-2 border-black">
+    <div class="w-full p-8 my-8">
+      <h2 class="font-bold"><%= link_to recipe.name , "recipes/#{recipe.id}"%></h2>
+      <p>By: <%= recipe.user.email%></p>
+    </div>
+    <div class="w-full p-8 my-8">
+      <p><%= recipe.description%></p>
+    </div>
+</div>

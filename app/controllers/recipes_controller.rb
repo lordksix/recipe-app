@@ -1,5 +1,8 @@
 class RecipesController < ApplicationController
+  before_action :find_recipe, only: %i[show destroy]
   before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:show]
+  authorize_resource only: [:show]
 
   def index
     @recipes = current_user.recipes
@@ -7,12 +10,11 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find_by(id: params['id'])
+    @current_user = current_user
   end
 
   def destroy
-    @current_user = current_user
-    @current_user.recipes.destroy(params[:id])
+    @recipe.destroy
     redirect_to '/recipes'
   end
 
@@ -33,6 +35,10 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  def find_recipe
+    @recipe = Recipe.find_by(id: params['id'])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
