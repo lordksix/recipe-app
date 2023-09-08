@@ -3,10 +3,9 @@
     <td><%= food.quantity %></td>
     <td><%= food.price * food.quantity %></td>
     <td>
-      <%= link_to 'Modify', recipe_foods_path(food.id), class: "text-blue-600 underline", data: { "turbo-method": :edit} %>
+      <%= link_to 'Modify', "/recipe_foods/#{food.id}/", class: "text-blue-600 underline", data: { "turbo-method": :edit} %>
     </td>
     <td>
-      <%= link_to 'Remove', recipe_foods_path(food.id), class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
+      <%= link_to 'REMOVE', "/recipe_foods/#{food.id}/", class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
     </td>
 </tr>
-  
