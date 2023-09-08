@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe_foods = @recipe.recipe_foods.includes(:food)
+    @recipe_foods = @recipe.foods.select('recipe_foods.id', 'foods.name', 'recipe_foods.quantity',
+                                         'foods.measurement_unit', 'foods.price')
     @current_user = current_user
   end
 
