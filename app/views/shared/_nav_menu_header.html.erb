@@ -1,10 +1,29 @@
 <header class="w-full p-4">
-  <div class="flex flex-wrap items-center justify-end gap-4 w-10/12 mx-auto">
-    <% if user_signed_in? %>
-      <%= button_to 'Sign out', destroy_user_session_path, form_class: 'px-4 py-2 border-2 border-black cursor:pointer', method: :delete %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
-      <%= link_to "Sign up", new_user_registration_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
-    <% end %>
-  </div>
+    <nav class="flex justify-between w-10/12">
+    <ul class="list-none  flex gap-4">
+      <li class="border-2 py-[10px] border-black">
+        <a href="/" class="px-4 block   cursor:pointer"> Food</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/foods/new" class="px-4 block  cursor:pointer"> Add Food</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/recipes" class="px-4 block  cursor:pointer"> Recipes</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/recipes/new" class="px-4 block  cursor:pointer"> Add Recipe</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/public_recipes" class="px-4 block  cursor:pointer">Public Recipes</a>
+      </li>
+    </ul>
+    <div >
+        <% if user_signed_in? %>
+          <%= button_to 'Sign out', destroy_user_session_path, form_class: 'px-4 py-2 border-2 border-black cursor:pointer', method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
+        <% end %>
+    </div>
+  </nav>
 </header>
