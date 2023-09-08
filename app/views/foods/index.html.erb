@@ -2,6 +2,7 @@
 <% if @foods.empty? %>
   <h2 class="text-center">There is no foods for now</h2>
 <% end %>
+
 <div class="flex items-center justify-end">
   <%= link_to 'Add Food', new_food_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
 </div>
