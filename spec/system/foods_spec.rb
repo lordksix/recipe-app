@@ -3,13 +3,12 @@ require 'rails_helper'
 RSpec.describe 'Foods', type: :system do
   include Devise::Test::IntegrationHelpers
   before(:all) do
-    Food.delete_all
+    delete_all
 
     @user = User.first
     @user ||= User.create!(
       email: 'john.doe@mail.com',
-      password: 'admin1234',
-      confirmed_at: Time.now
+      password: 'admin1234'
     )
 
     @food1 = Food.create(user: @user,
@@ -46,7 +45,14 @@ RSpec.describe 'Foods', type: :system do
   it 'allows removing a food' do
     visit foods_path
 
-    first(:link, 'Remove').click
+    first(:link, 'Delete').click
     expect(page).to have_content('Food was successfully destroyed.')
+  end
+
+  def delete_all
+    RecipeFood.delete_all
+    Food.delete_all
+    Recipe.delete_all
+    User.delete_all
   end
 end

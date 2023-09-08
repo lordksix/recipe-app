@@ -4,15 +4,12 @@ RSpec.describe 'Recipes', type: :system do
   include Devise::Test::IntegrationHelpers
 
   before(:all) do
-    Ingredient.delete_all
     Recipe.delete_all
 
     @user = User.first
     @user ||= User.create!(
       email: 'john.doe@mail.com',
-      password: 'admin1234',
-      password_confirmation: 'admin1234',
-      confirmed_at: Time.now
+      password: 'admin1234'
     )
     @recipe1 = Recipe.create(user: @user,
                              name: 'Perfect Chicken',

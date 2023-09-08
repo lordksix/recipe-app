@@ -13,9 +13,9 @@ RSpec.describe RecipeFood, type: :model do
                    quantity: 1,
                    user: @user)
   subject do
-    RecipeFood.new(food: @food
-             quantity: 1,
-             recipe: @recipe)
+    RecipeFood.new(food: @food,
+                   quantity: 1,
+                   recipe: @recipe)
   end
   it 'should have a quantity' do
     subject.quantity = nil

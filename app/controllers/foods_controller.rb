@@ -9,11 +9,14 @@ class FoodsController < ApplicationController
   def create
     new_food = Food.new(food_params)
     new_food.user = current_user
-    if new_food.save
-      flash[:sucess] = 'Food saved successfully'
-      redirect_to '/'
-    else
-      flash[:error] = 'Error: Food could not be saved'
+    respond_to do |format|
+      if new_food.save
+        format.html { redirect_to foods_url, notice: 'Food was successfully created.' }
+        format.json { render :index, status: :created, location: new_food }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @food.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -25,7 +28,11 @@ class FoodsController < ApplicationController
   def destroy
     @current_user = current_user
     @current_user.foods.destroy(params[:id])
-    redirect_to '/'
+
+    respond_to do |format|
+      format.html { redirect_to foods_url, notice: 'Food was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
