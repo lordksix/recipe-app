@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
+  @user = User.new(email: 'email1@email.com', password: 'abcdef')
   subject do
     Food.new(name: 'Chicken',
              measurement_unit: 'lbs',
              price: 1.99,
-             quantity: 1)
+             quantity: 1,
+             user: @user)
   end
 
   before { subject.save }
