@@ -15,11 +15,11 @@
   <%= form_with url: "/foods", model: @food, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :name %>
-      <%= form.text_field :name, class: 'w-full' %>
+      <%= form.text_field :name, required: true, class: 'w-full' %>
     </div>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :measurement_unit %>
-      <%= form.text_field :measurement_unit, class: 'w-full' %>
+      <%= form.text_field :measurement_unit, required: true, class: 'w-full' %>
     </div>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :quantity %>
