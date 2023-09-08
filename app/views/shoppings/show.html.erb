@@ -16,13 +16,13 @@
       <thead>
       <tr>
         <th>Food</th>
-        <th>Quantity</th>W
+        <th>Quantity</th>
         <th>Value</th>
       </tr>
       </thead>
       <tbody>
       <%  @ingredients.each do |ingredient | %>
-        <tr>
+        <tr class="text-center">
           <th><%=  ingredient.name  %></th>
           <td><%= ingredient.quantity %> <%= ingredient.measurement_unit %></td>
           <td>$<%=  ingredient.price  %></td>
