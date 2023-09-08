@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
-<div class="flex items-center justify-end">
+<div class="flex items-center justify-between">
+  <%= link_to 'Generate shopping list', shopping_path(@recipe), class: 'text-blue-600 underline' %>
   <%= link_to 'Add Ingredients', edit_recipe_path(@recipe.id), class: "text-blue-600 underline" %>
 </div>
   <% if @recipe.public == true || can?(:manage, @recipe) %>
