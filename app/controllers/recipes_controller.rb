@@ -23,7 +23,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @current_user = current_user
     @recipe.recipe_foods.build
-    # @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
     @foods_map = @current_user.foods.pluck(:name, :id)
   end
 
@@ -47,7 +46,6 @@ class RecipesController < ApplicationController
 
   def edit
     @current_user = current_user
-    # @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
     @foods_map = @current_user.foods.pluck(:name, :id)
   end
 
