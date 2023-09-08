@@ -1,7 +1,10 @@
 <% if user_signed_in? %>
-  <% if @recipe.public == true || @recipe.user.id == @current_user.id %>
+<div class="flex items-center justify-end">
+  <%= link_to 'Add Ingredients', edit_recipe_path(@recipe.id), class: "text-blue-600 underline" %>
+</div>
+  <% if @recipe.public == true || can?(:manage, @recipe) %>
     <%= render 'shared/detail_recipe_card', recipe: @recipe %>
-    <%= render 'shared/table_foods' %>
+    <%= render 'shared/table_foods', recipe_foods: @recipe_foods %>
   <% else %>
     <p> You are not authorize to see this recipe. </p>
     <%= link_to 'Go to your recipes', recipes_path, class: "text-blue-600 underline" %>
@@ -9,7 +12,7 @@
 <% else %>
   <% if @recipe.public == true %>
     <%= render 'shared/detail_recipe_card', recipe: @recipe %>
-    <%= render 'shared/table_foods' %>
+    <%= render 'shared/table_foods', recipe_foods: @recipe_foods %>
   <% else %>
     <p> This is a private recipe, please sign in. </p>
   <% end %>

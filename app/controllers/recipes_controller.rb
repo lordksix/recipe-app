@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :find_recipe, only: %i[show destroy]
+  before_action :find_recipe, only: %i[show destroy edit update]
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, only: [:show]
   authorize_resource only: [:show]
@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def show
+    @recipe_foods = @recipe.recipe_foods
     @current_user = current_user
   end
 
@@ -21,6 +22,15 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @current_user = current_user
+    @recipe.recipe_foods.build
+    @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
+  end
+
+  def destroy_recipe_food
+    recipe_food = RecipeFood.find(params[:id])
+    recipe = recipe_food.recipe
+    recipe_food.destroy
+    redirect_to recipe_path(recipe), notice: 'Ingredient was successfully destroyed.'
   end
 
   def create
@@ -34,6 +44,23 @@ class RecipesController < ApplicationController
     end
   end
 
+  def edit
+    @current_user = current_user
+    @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
+  end
+
+  def update
+    respond_to do |format|
+      if @recipe.update(recipe_params)
+        format.html { redirect_to recipe_url(@recipe) }
+        format.json { render :show, status: :ok, location: @recipe }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
 
   def find_recipe
@@ -41,6 +68,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public,
+                                   recipe_foods_attributes: %i[id food_id quantity _destroy])
   end
 end

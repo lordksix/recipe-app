@@ -5,7 +5,6 @@ class Ability
 
     can :read, :all
     can :manage, Food, { user_id: user.id }
-    can %i[show], Recipe, :all
-    can %i[index new create destroy], Recipe, { user_id: user.id }
+    can :manage, Recipe, { user: }
   end
 end
