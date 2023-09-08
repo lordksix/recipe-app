@@ -1,6 +1,6 @@
 <div>
   <h2><%= recipe.name%></h2>
-  <%= form_with(model: recipe, url: recipe_path(@recipe), method: :patch, id: 'recipe-form') do |form| %>
+  <%= form_with model: recipe do |form| %>
     <div class="">
       <%= form.label :public, class: 'form-check-label' %>
       <%= form.check_box :public, class: "custom-control-input", role: 'switch', data: { public: recipe.public }, onchange: "this.form.requestSubmit()", disabled: !can?(:manage, recipe)  %>

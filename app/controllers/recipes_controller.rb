@@ -22,6 +22,8 @@ class RecipesController < ApplicationController
   def new
     @recipe = Recipe.new
     @current_user = current_user
+    @recipe.recipe_foods.build
+    @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
   end
 
   def create
@@ -48,6 +50,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public,
+                                   recipe_foods_attributes: %i[id food_id quantity _destroy])
   end
 end
