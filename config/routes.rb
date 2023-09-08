@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   resources :recipes
   resources :recipe_foods
   resources :public_recipes, only: [:index]
-  resources :shoppings, only: [:index]
   resources :recipe_foods, only: [:destroy]
+
+  get '/shoppings/:id', to: 'shoppings#show', as: 'shoppings'
 
 end

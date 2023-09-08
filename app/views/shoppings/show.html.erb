@@ -1,0 +1,34 @@
+<div class="w-full flex flex-col gap-6">
+  <h2>Shopping List for: <%= @recipe.name %></h2>
+
+  <div class="flex justify-between w-10/12">
+    <p>Amount of food items to buy: <%= @total_item %></p>
+    <p>Total value of food needed: $<%= @total_amount %></p>
+  </div>
+    <div class="flex justify-start align-center">
+<%= link_to "Return to recipe details", recipe_path(@recipe), class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
+  </div>
+
+  <% if @ingredients.empty? %>
+    <p>You have all the ingredients</p>
+  <% else %>
+    <table class="table-fixed">
+      <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>W
+        <th>Value</th>
+      </tr>
+      </thead>
+      <tbody>
+      <%  @ingredients.each do |ingredient | %>
+        <tr>
+          <th><%=  ingredient.name  %></th>
+          <td><%= ingredient.quantity %> <%= ingredient.measurement_unit %></td>
+          <td>$<%=  ingredient.price  %></td>
+        </tr>
+      <%  end  %>
+      </tbody>
+    </table>
+  <% end %>
+</div>

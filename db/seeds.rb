@@ -52,7 +52,7 @@ for user_position in 0..(quantity_users - 1) do
       description: "This is the first one",
       public: public
     )
-    food_recipes = RecipeFood.create(quantity: 20, recipe: temp_recipe, food: foods[user_position][Random.rand(quantity_foods - 1)])
+    food_recipes = RecipeFood.create(quantity: 5, recipe: temp_recipe, food: foods[user_position][Random.rand(quantity_foods - 1)])
   end
 
 end
