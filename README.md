@@ -33,7 +33,7 @@
 
 # 📖 [Recipe by Rails] <a name="about-project"></a>
 
-**Recipe by Rails** is a Ruby on Rails web application with PostgreSQL as database.
+**Recipe by Rails** is a Ruby on Rails web application with PostgreSQL as database. It allows to create recipes, private or public, and generate a shopping list from the ingredients.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -72,6 +72,9 @@
 - **Rubocop implemented**
 - **Implement Model Migrations**
 - **Implement Implement TailwindCSS**
+- **Implement unit and integrations tests**
+- **Implement authentication and authorization**
+- **Use PostgreSQL**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -165,7 +168,7 @@ In the project directory, you can run:
 ## 🔭 Future Features <a name="future-features"></a>
 
 Future changes:
--
+- Deployment
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
