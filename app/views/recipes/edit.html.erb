@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <div class="flex flex-col justify-center w-full max-w-3xl gap-6 mx-auto align-center">
+  <h1 class="text-center">Add Ingredients</h1>
+  <% if @recipe.errors.any? %>
+    <div class="post-errors-box">
+      <p><%= pluralize(@recipe.errors.count, "error") %> found:</p>
+
+      <ul class="post-errors-ul">
+        <% @recipe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= render "shared/ingredient", recipe: @recipe %>
+</div>
+<% else %>
+  <p>Please, sign in to edit the recipe item</p>
+<% end %>
