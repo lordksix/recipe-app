@@ -5,12 +5,12 @@ class RecipesController < ApplicationController
   authorize_resource only: [:show]
 
   def index
-    @recipes = current_user.recipes
+    @recipes = current_user.recipes.includes(:recipe_foods)
     @current_user = current_user
   end
 
   def show
-    @recipe_foods = @recipe.recipe_foods
+    @recipe_foods = @recipe.recipe_foods.includes(:food)
     @current_user = current_user
   end
 
@@ -23,7 +23,8 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
     @current_user = current_user
     @recipe.recipe_foods.build
-    @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
+    # @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
+    @foods_map = @current_user.foods.pluck(:name, :id)
   end
 
   def destroy_recipe_food
@@ -46,7 +47,8 @@ class RecipesController < ApplicationController
 
   def edit
     @current_user = current_user
-    @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
+    # @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
+    @foods_map = @current_user.foods.pluck(:name, :id)
   end
 
   def update
