@@ -30,7 +30,7 @@ RSpec.describe 'Foods', type: :system do
 
   it 'allows adding a new food' do
     visit foods_path
-    click_link 'Add Food'
+    click_link 'Add New Food'
 
     fill_in 'Name', with: 'Sushi'
     fill_in 'Measurement unit', with: 'Roll'
