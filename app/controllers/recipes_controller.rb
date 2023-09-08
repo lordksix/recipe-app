@@ -11,7 +11,7 @@ class RecipesController < ApplicationController
 
   def show
     @recipe_foods = @recipe.recipe_foods
-    # @current_user = current_user
+    @current_user = current_user
   end
 
   def destroy

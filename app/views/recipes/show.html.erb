@@ -1,17 +1,5 @@
 <% if user_signed_in? %>
-<div class="flex items-center justify-end">
-  <a href="/foods/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Food</a>
-</div>
-  <%# <%= link_to "Public", recipe_path(@recipe), method: :put, class: "btn btn-primary" %>
-
-<%= form_with(model: @recipe, url: recipe_path(@recipe), method: :patch, id: 'recipe-form') do |form| %>
-  <div class="">
-    <%= form.check_box :public, class: "custom-control-input", id: "customSwitch1", data: { public: @recipe.public }, onchange: "this.form.submit()" %>
-    <label class="custom-control-label" for="customSwitch1">Public </label>
-  </div>
-  
-<% end %>
-  <% if @recipe.public == true || @recipe.user.id == @current_user.id %>
+  <% if @recipe.public == true || can?(:manage, @recipe) %>
     <%= render 'shared/detail_recipe_card', recipe: @recipe %>
     <%= render 'shared/table_foods', recipe_foods: @recipe_foods %>
   <% else %>
