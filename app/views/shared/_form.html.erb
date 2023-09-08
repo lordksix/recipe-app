@@ -1,4 +1,4 @@
-<%= form_with model: recipe, data: { controller: "recipe_foods", nested_form_wrapper_selector_value: '.nested-form-wrapper' }, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
+<%= form_with model: recipe, data: { controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' }, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
   <div class="flex flex-col w-full max-w-3xl">
     <%= form.label :name %>
     <%= form.text_field :name, class: 'w-full' %>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="d-flex flex-column">
-    <template data-recipe_foods-target="template">
+    <template data-nested-form-target="template">
       <%= form.fields_for :recipe_foods, RecipeFood.new, child_index: 'NEW_RECORD' do |field| %>
         <%= render "shared/recipe_food_form", form: field %>
       <% end %>
@@ -32,9 +32,9 @@
       <%= render "shared/recipe_food_form", form: field %>
     <% end %>
 
-    <div data-recipe_foods-target="target"></div>
+    <div data-nested-form-target="target"></div>
 
-    <button type="button" data-action="recipe_foods#add" class="btn btn-primary align-self-end">Add Ingredients</button>
+    <button type="button" data-action="nested-form#add" class="btn btn-primary align-self-end">Add Ingredients</button>
   </div>
   <div class="flex justify-center w-full max-w-3xl align-center">
     <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>

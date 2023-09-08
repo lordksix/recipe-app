@@ -26,6 +26,13 @@ class RecipesController < ApplicationController
     @foods_map = @current_user.foods.all.collect { |food| [food.name, food.id] }
   end
 
+  def destroy_recipe_food
+    recipe_food = RecipeFood.find(params[:id])
+    recipe = recipe_food.recipe
+    recipe_food.destroy
+    redirect_to recipe_path(recipe), notice: 'Ingredient was successfully destroyed.'
+  end
+
   def create
     new_recipe = Recipe.new(recipe_params)
     new_recipe.user = current_user
