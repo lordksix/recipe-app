@@ -1,15 +1,29 @@
 <header class="w-full p-4">
-    <nav class="flex flex-wrap gap-4 w-10/12 mx-auto">
-    <a href="/" class="px-4 py-2 border-2 border-black cursor:pointer"> Foods</a>
-    <a href="/foods/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Food</a>
-    <a href="/recipes" class="px-4 py-2 border-2 border-black cursor:pointer"> Recipes</a>
-    <a href="/recipes/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Recipe</a>
-    <a href="/public_recipes" class="px-4 py-2 border-2 border-black cursor:pointer">Public Recipes</a>
-    <% if user_signed_in? %>
-      <%= button_to 'Sign out', destroy_user_session_path, form_class: 'px-4 py-2 border-2 border-black cursor:pointer', method: :delete %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
-      <%= link_to "Sign up", new_user_registration_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
-    <% end %>
+    <nav>
+    <ul class="list-none  flex gap-4 w-10/12 mx-auto">
+      <li>
+        <a href="/" class="px-4 py-2 border-2 border-black cursor:pointer"> Food</a>
+      </li>
+      <li>
+        <a href="/foods/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Food</a>
+      </li>
+      <li>
+        <a href="/recipes" class="px-4 py-2 border-2 border-black cursor:pointer"> Recipes</a>
+      </li>
+      <li>
+        <a href="/recipes/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Recipe</a>
+      </li>
+      <li>
+        <a href="/public_recipes" class="px-4 py-2 border-2 border-black cursor:pointer">Public Recipes</a>
+      </li>
+    </ul>
+    <div class="flex gap-4 w-10/12 mx-auto justify-end">
+        <% if user_signed_in? %>
+          <%= button_to 'Sign out', destroy_user_session_path, form_class: 'px-4 py-2 border-2 border-black cursor:pointer', method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'px-4 py-2 border-2 border-black cursor:pointer'  %>
+        <% end %>
+    </div>
   </nav>
 </header>
