@@ -1,4 +1,7 @@
 <% if user_signed_in? %>
+<div class="flex items-center justify-end">
+  <%= link_to 'Add Ingredients', edit_recipe_path(@recipe.id), class: "text-blue-600 underline" %>
+</div>
   <% if @recipe.public == true || can?(:manage, @recipe) %>
     <%= render 'shared/detail_recipe_card', recipe: @recipe %>
     <%= render 'shared/table_foods', recipe_foods: @recipe_foods %>
