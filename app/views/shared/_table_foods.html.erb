@@ -7,7 +7,9 @@
       <th>Food</th>
       <th>Quantity</th>
       <th>Value</th>
+      <%if can?(:manage, @recipe) %>
       <th>Actions</th>
+      <% end%>
     </tr>
   </thead>
   <tbody>

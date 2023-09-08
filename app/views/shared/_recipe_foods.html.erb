@@ -2,10 +2,13 @@
     <td><%= food.name %></td>
     <td><%= food.quantity %></td>
     <td><%= food.price * food.quantity %></td>
-    <td>
-      <%= link_to 'Modify', "/recipe_foods/#{food.id}/", class: "text-blue-600 underline", data: { "turbo-method": :edit} %>
+    <%if can?(:manage, @recipe) %>
+      <td>
+      <span class="text-yellow-600">Modify</span>
     </td>
     <td>
       <%= link_to 'REMOVE', "/recipe_foods/#{food.id}/", class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
     </td>
+      <% end%>
+    
 </tr>
