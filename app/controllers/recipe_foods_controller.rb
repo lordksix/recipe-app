@@ -1,9 +1,4 @@
 class RecipeFoodsController < ApplicationController
-  # def index
-  #   @recipe_foods = current_user.recipe_foods
-  #   @current_user = current_user
-  # end
-
   def create
     recipe = Recipe.find_by(id: params[:recipe_id])
     # Create a new food item with strong parameter handling
@@ -19,6 +14,12 @@ class RecipeFoodsController < ApplicationController
     else
       flash[:error] = 'Error: Food item could not be created'
     end
+  end
+
+  def destroy
+    @recipe = RecipeFood.find_by(food: Food.find_by(id: params[:id]))
+    @recipe.destroy
+    redirect_to "/recipes/#{@recipe.recipe.id}"
   end
 
   private
