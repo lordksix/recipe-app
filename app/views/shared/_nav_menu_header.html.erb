@@ -1,4 +1,18 @@
 <header class="w-full p-4">
+  <ul class="list-none flex justify-center my-2">
+  <li class="mx-2">
+    <a href="/foods/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Food</a>
+  </li>
+  <li class="mx-2">
+    <a href="/recipes" class="px-4 py-2 border-2 border-black cursor:pointer"> Recipes</a>
+  </li>
+  <li class="mx-2">
+    <a href="/public_recipes" class="px-4 py-2 border-2 border-black cursor:pointer">Public Recipes</a>
+  </li>
+  <li class="mx-2">
+    <a href="/recipes/new" class="px-4 py-2 border-2 border-black cursor:pointer"> Add Recipe</a>
+  </li>
+</ul>
   <div class="flex flex-wrap items-center justify-end gap-4 w-10/12 mx-auto">
     <% if user_signed_in? %>
       <%= button_to 'Sign out', destroy_user_session_path, form_class: 'px-4 py-2 border-2 border-black cursor:pointer', method: :delete %>
