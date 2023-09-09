@@ -1,14 +1,15 @@
-<h1 class="text-center">Welcome <%= @current_user.email %></h1>
+<h1 class="text-3xl text-center">Welcome <b><%= @current_user.email %></b></h1>
 <% if @foods.empty? %>
   <h2 class="text-center">There is no foods for now</h2>
 <% end %>
 
-<div class="flex items-center justify-end">
+<div class="flex items-center justify-end mb-6">
+
   <%= link_to 'Add New Food', new_food_path, class: "px-4 py-2 border-2 border-black cursor:pointer" %>
 </div>
 
 <table class="table-fixed">
-  <thead>
+  <thead class="border-2 border-black">
     <tr>
       <th>Food</th>
       <th>Measurement unit</th>
@@ -16,7 +17,7 @@
       <th>Actions</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="border-2 border-black">
     <% @foods.each do |food| %>
       <%= render 'shared/food_card', food: food %>
     <% end %>

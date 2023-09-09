@@ -2,17 +2,17 @@
   <h2 class="text-center">There is no Foods Recipes for now</h2>
 <% else %>
 <table class="table-fixed">
-  <thead>
+  <thead class="border-2 border-black">
     <tr>
       <th>Food</th>
       <th>Quantity</th>
       <th>Value</th>
       <%if can?(:manage, @recipe) %>
-      <th>Actions</th>
+      <th colspan="2">Actions</th>
       <% end%>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="border-2 border-black">
     <% @recipe_foods.each do |recipe_food| %>
       <%= render 'shared/recipe_foods', food: recipe_food %>
     <% end %>

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <div class="flex flex-col justify-center w-full max-w-3xl gap-6 mx-auto align-center">
-  <h1 class="text-center">Add New Food</h1>
+  <h1 class="text-3xl text-center">Add New Food</h1>
   <% if @food.errors.any? %>
     <div class="post-errors-box">
       <p><%= pluralize(@food.errors.count, "error") %> found:</p>
@@ -15,11 +15,11 @@
   <%= form_with url: "/foods", model: @food, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :name %>
-      <%= form.text_field :name, class: 'w-full' %>
+      <%= form.text_field :name, required: true, class: 'w-full' %>
     </div>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :measurement_unit %>
-      <%= form.text_field :measurement_unit, class: 'w-full' %>
+      <%= form.text_field :measurement_unit, required: true, class: 'w-full' %>
     </div>
     <div class="flex flex-col w-full max-w-3xl">
       <%= form.label :quantity %>
