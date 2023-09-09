@@ -4,10 +4,7 @@ RSpec.describe 'Shoppings', type: :system do
   include Devise::Test::IntegrationHelpers
   before(:all) do
     delete_all
-    @john = User.create!(
-      email: 'john.doe@mail.com',
-      password: 'admin1234'
-    )
+    set_user
     @food1 = Food.create(user: @john,
                          name: 'Pizza',
                          measurement_unit: 'Slice',
@@ -53,5 +50,13 @@ RSpec.describe 'Shoppings', type: :system do
     Food.delete_all
     Recipe.delete_all
     User.delete_all
+  end
+
+  def set_user
+    @john = User.create!(
+      name: 'pepe',
+      email: 'john.doe@mail.com',
+      password: 'admin1234'
+    )
   end
 end

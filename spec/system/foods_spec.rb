@@ -7,6 +7,7 @@ RSpec.describe 'Foods', type: :system do
 
     @user = User.first
     @user ||= User.create!(
+      name: 'pepe',
       email: 'john.doe@mail.com',
       password: 'admin1234'
     )

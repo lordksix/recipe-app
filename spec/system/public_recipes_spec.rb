@@ -4,6 +4,7 @@ RSpec.describe 'PublicRecipes', type: :system do
   before(:all) do
     delete_all
     @john = User.create!(
+      name: 'pepe',
       email: 'john.doe@mail.com',
       password: 'admin1234'
     )
