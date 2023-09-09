@@ -33,8 +33,10 @@
     <% end %>
 
     <div data-nested-form-target="target"></div>
+   <div class="flex items-center justify-start mb-6">
+      <button type="button" data-action="nested-form#add" class="px-4 py-2 border-2 border-black cursor:pointer">Add Ingredients</button>
+    </div>
 
-    <button type="button" data-action="nested-form#add" class="btn btn-primary align-self-end">Add Ingredients</button>
   </div>
   <div class="flex justify-center w-full max-w-3xl align-center">
     <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>
