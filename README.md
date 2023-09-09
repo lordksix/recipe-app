@@ -125,20 +125,24 @@ To create database, migrate schema and implement initial database entries
 
 ### Usage
 
-In the project directory, you can run:
-
-```sh
-  bundle exec rake assets:precompile
-  rails s
-```
-
-or
-
-if
+In the project directory, it is recommended  to run:
 
 ```sh
   ./bin/dev
 ```
+
+It is also possible to run:
+
+```sh
+  rails s
+```
+
+however you need to run during the first time you run the app:
+
+```sh
+  bundle exec rake assets:precompile
+```
+
 
 Check on db/seed.rb for pre-loaded users, posts, comments, and likes for development
 
