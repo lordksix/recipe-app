@@ -83,7 +83,6 @@ test:
 #
 production:
   <<: *default
-  database: postgres
   url: <%= ENV['DATABASE_URL'] %>
   database: recipe_app_db_xptn
   username: recipe_app_db_xptn_user
