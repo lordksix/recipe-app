@@ -128,6 +128,7 @@ To create database, migrate schema and implement initial database entries
 In the project directory, you can run:
 
 ```sh
+  bundle exec rake assets:precompile
   rails s
 ```
 
