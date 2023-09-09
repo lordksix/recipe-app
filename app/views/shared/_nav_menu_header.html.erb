@@ -1,0 +1,29 @@
+<header class="w-full p-4">
+  <nav class="flex justify-between w-10/12 mx-auto">
+    <ul class="flex gap-4 list-none">
+      <li class="border-2 py-[10px] border-black">
+        <a href="/" class="block px-4 cursor:pointer"> Food</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/foods/new" class="block px-4 cursor:pointer"> Add Food</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/recipes" class="block px-4 cursor:pointer"> Recipes</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/recipes/new" class="block px-4 cursor:pointer"> Add Recipe</a>
+      </li>
+      <li class="border-2 py-[10px] border-black">
+        <a href="/public_recipes" class="block px-4 cursor:pointer">Public Recipes</a>
+      </li>
+    </ul>
+    <div >
+        <% if user_signed_in? %>
+          <%= button_to 'Sign out', destroy_user_session_path, form_class: 'px-4 py-2 border-2 border-black cursor:pointer', method: :delete %>
+        <% else %>
+          <%= link_to "Sign in", new_user_session_path, class: 'px-4  border-2 border-black cursor:pointer'  %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'px-4  border-2 border-black cursor:pointer'  %>
+        <% end %>
+    </div>
+  </nav>
+</header>

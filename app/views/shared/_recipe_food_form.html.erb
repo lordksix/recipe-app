@@ -1,0 +1,20 @@
+<div class="mb-3 nested-form-wrapper" data-new-record="<%= form.object.new_record? %>">
+
+  <div class="flex gap-4 mb-3 ">
+    <div>
+      <%= form.label :food, class: 'form-label' %>
+      <%= form.select :food_id, @foods_map, {}, class: 'form-select' %>
+    </div>
+
+    <div>
+      <%= form.label :quantity, class: 'form-label' %>
+      <%= form.number_field :quantity,required: true, class: 'form-control' %>
+    </div>
+    <div class="flex items-center justify-end mb-6">
+      <button type="button" data-action="nested-form#remove" class="px-4 py-2 border-2 border-black cursor:pointer">Remove Ingredient</button>
+    </div>
+
+
+    <%= form.hidden_field :_destroy %>
+  </div>
+</div>

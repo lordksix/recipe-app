@@ -1,0 +1,14 @@
+<tr class="text-center">
+    <td><%= food.name %></td>
+    <td><%= food.quantity %></td>
+    <td><%= food.price * food.quantity %></td>
+    <%if can?(:manage, @recipe) %>
+      <td>
+      <span>Modify</span>
+    </td>
+    <td>
+      <%= link_to 'REMOVE', "/recipe_foods/#{food.id}/", class: "text-blue-600 underline", data: { "turbo-method": :delete} %>
+    </td>
+      <% end%>
+    
+</tr>
