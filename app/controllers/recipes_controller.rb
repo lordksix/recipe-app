@@ -5,7 +5,7 @@ class RecipesController < ApplicationController
   authorize_resource only: [:show]
 
   def index
-    @recipes = current_user.recipes.includes(:recipe_foods)
+    @recipes = current_user.recipes
     @current_user = current_user
   end
 

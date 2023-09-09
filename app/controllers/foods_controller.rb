@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @foods = current_user.foods.includes(:user)
+    @foods = current_user.foods
     @current_user = current_user
   end
 
