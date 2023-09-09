@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe RecipeFood, type: :model do
-  @user = User.new(email: 'email1@email.com', password: 'abcdef')
+  @user = User.new(name: 'pepe', email: 'email1@email.com', password: 'abcdef')
   @recipe = Recipe.new(user: @user,
                        name: 'Perfect Chicken',
                        description: '',
