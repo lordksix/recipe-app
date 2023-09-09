@@ -1,19 +1,12 @@
 <a name="readme-top"></a>
-
-<div align="center">
-    <img src="./assets/lordksix-logos_transparent.png" alt="logo" width="240"  height="auto" margin="auto"/>
-</div>
-<div align="center">
-    <img src="./assets/recipe_erd_2_members.png" alt="logo" width="400"  height="auto" margin="auto"/>
-    <br/>
-  <h3><b>Recipe by Rails</b></h3>
+  <h3><b>Recipe App by Rails</b></h3>
 
 </div>
 
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Blog App\] ](#-blog-app-)
+- [📖 \[Recipe by Rails\] ](#-recipe-by-rails-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -161,7 +154,9 @@ In the project directory, you can run:
 
 👤 **Tumaini Maganiko**
 
-- GitHub: [@tumainimaganiko](https://github.com/tumainimaganiko)
+- GitHub: [@githubhandle](https://github.com/tumainimaganiko)
+- Twitter: [@twitterhandle](https://twitter.com/Chief2maini)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tumainimaganiko/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
