@@ -5,11 +5,12 @@
 </div>
   <% if @recipe.public == true || can?(:manage, @recipe) %>
     <%= render 'shared/detail_recipe_card', recipe: @recipe %>
+    <%= link_to 'Go to your recipes', recipes_path, class: "text-blue-600 underline mb-4" %>
     <%= render 'shared/table_foods', recipe_foods: @recipe_foods %>
   <% else %>
     <p> You are not authorize to see this recipe. </p>
+    <%= link_to 'Go to your recipes', recipes_path, class: "text-blue-600 underline mb-4" %>
   <% end %>
-  <%= link_to 'Go to your recipes', recipes_path, class: "text-blue-600 underline" %>
 <% else %>
   <% if @recipe.public == true %>
     <%= render 'shared/detail_recipe_card', recipe: @recipe %>

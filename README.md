@@ -1,4 +1,4 @@
-<a name="readme-top"></a>
+<a id="readme-top"></a>
 
 <div align="center">
     <img src="./assets/lordksix-logos_transparent.png" alt="logo" width="240"  height="auto" margin="auto"/>
@@ -6,40 +6,39 @@
 <div align="center">
     <img src="./assets/recipe_erd_2_members.png" alt="logo" width="400"  height="auto" margin="auto"/>
     <br/>
-  <h3><b>Recipe by Rails</b></h3>
-
 </div>
+<h1 align="center"><b>Recipe App by Rails</b></h3>
 
 # 📗 Table of Contents
 
-- [📗 Table of Contents](#-table-of-contents)
-- [📖 \[Blog App\] ](#-blog-app-)
-  - [🛠 Built With ](#-built-with-)
-    - [Tech Stack ](#tech-stack-)
-    - [Key Features ](#key-features-)
-  - [💻 Getting Started ](#-getting-started-)
+- [📗 Table of Contents](#table-of-contents)
+- [📖 Recipe by Rails ](#about-project)
+  - [🛠 Built With ](#built-with)
+    - [Tech Stack ](#tech-stack)
+    - [Key Features ](#key-features)
+  - [💻 Getting Started ](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
-  - [👥 Authors ](#-authors-)
-  - [🔭 Future Features ](#-future-features-)
-  - [🤝 Contributing ](#-contributing-)
-  - [⭐️ Show your support ](#️-show-your-support-)
-  - [🙏 Acknowledgments ](#-acknowledgments-)
-  - [❓ FAQ ](#-faq-)
-  - [📝 License ](#-license-)
+  - [👥 Authors](#Authors)
+  - [🔭 Future Features ](#future-features)
+  - [🤝 Contributing ](#contributing)
+  - [⭐️ Show your support ](#️support)
+  - [🙏 Acknowledgments ](#acknowledgements)
+  - [❓ FAQ ](#faq)
+  - [📝 License ](#license)
 
-# 📖 [Recipe by Rails] <a name="about-project"></a>
+# 📖 Recipe by Rails <a id="about-project"></a>
 
-**Recipe by Rails** is a Ruby on Rails web application with PostgreSQL as database.
+**Recipe by Rails** is a Ruby on Rails web application with PostgreSQL as database. It allows to create recipes, private or public, and generate a shopping list from the ingredients.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🛠 Built With <a name="built-with"></a>
+## 🛠 Built With <a id="built-with"></a>
 
-### Tech Stack <a name="tech-stack"></a>
+### Tech Stack <a id="tech-stack"></a>
 
 <details>
     <summary>Client</summary>
@@ -65,17 +64,20 @@
 </details>
 
 
-### Key Features <a name="key-features"></a>
+### Key Features <a id="key-features"></a>
 
 - **Gitflow**
 - **Linters implemented**
 - **Rubocop implemented**
 - **Implement Model Migrations**
 - **Implement Implement TailwindCSS**
+- **Implement unit and integrations tests**
+- **Implement authentication and authorization**
+- **Use PostgreSQL**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 💻 Getting Started <a name="getting-started"></a>
+## 💻 Getting Started <a id="getting-started"></a>
 
 ### Prerequisites
 
@@ -122,33 +124,45 @@ To create database, migrate schema and implement initial database entries
 
 ### Usage
 
-In the project directory, you can run:
+In the project directory, run the first time:
 
 ```sh
-  rails s
+  bundle exec rake assets:precompile
 ```
 
-or
-
-if
+ then, you can use:
 
 ```sh
   ./bin/dev
+```
+
+or:
+
+```sh
+  rails s
 ```
 
 Check on db/seed.rb for pre-loaded users, posts, comments, and likes for development
 
 ### Run tests
 
-In the project directory, you can run:
+In the project directory, run the first time:
+
+```sh
+  bundle exec rake assets:precompile
+```
+
+ then, you can:
 
 ```sh
   rspec .
 ```
 
+however, if you haven't run `./bin/dev`
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Authors <a name="authors"></a>
+## 👥 Authors <a id="Authors"></a>
 
 👤 **lordksix**
 
@@ -158,18 +172,20 @@ In the project directory, you can run:
 
 👤 **Tumaini Maganiko**
 
-- GitHub: [@tumainimaganiko](https://github.com/tumainimaganiko)
+- GitHub: [@githubhandle](https://github.com/tumainimaganiko)
+- Twitter: [@twitterhandle](https://twitter.com/Chief2maini)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/tumainimaganiko/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🔭 Future Features <a name="future-features"></a>
+## 🔭 Future Features <a id="future-features"></a>
 
 Future changes:
--
+- Adding Inventories
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🤝 Contributing <a name="contributing"></a>
+## 🤝 Contributing <a id="contributing"></a>
 
 Contributions, issues, and feature requests are welcome!
 
@@ -177,19 +193,19 @@ Feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## ⭐️ Show your support <a name="support"></a>
+## ⭐️ Show your support <a id="️support"></a>
 
 If you like this project, I encourage you to clone, fork and contribute. Our community and knowledge grows with each engagement.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🙏 Acknowledgments <a name="acknowledgements"></a>
+## 🙏 Acknowledgments <a id="acknowledgements"></a>
 
 We would like to thank Microverse for the idea for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## ❓ FAQ <a name="faq"></a>
+## ❓ FAQ <a id="faq"></a>
 
 - **Do I need a IDE or a special text editor to make changes?**
 
@@ -197,7 +213,7 @@ We would like to thank Microverse for the idea for this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 📝 License <a name="license"></a>
+## 📝 License <a id="license"></a>
 
 This project is [MIT](./LICENSE) licensed.
 

@@ -9,7 +9,7 @@ require 'faker'
 Recipe.destroy_all
 Food.destroy_all
 User.destroy_all
-# RecipeFood.destroy_all
+RecipeFood.destroy_all
 
 quantity_users = 10
 quantity_foods = 15
@@ -20,10 +20,11 @@ foods = []
 
 for user_position in 1..quantity_users do
   temp_user = User.create!(
+    name: "pepe #{user_position}",
     email: "email#{user_position}@email.com",
     password: "abcdef"
   )
-  #temp_user.skip_confirmation!
+
   temp_user.save!
   users << temp_user
 end
@@ -52,7 +53,9 @@ for user_position in 0..(quantity_users - 1) do
       description: "This is the first one",
       public: public
     )
-    food_recipes = RecipeFood.create(quantity: 5, recipe: temp_recipe, food: foods[user_position][Random.rand(quantity_foods - 1)])
+    for position in 0..Random.rand(quantity_recipes) do
+      food_recipes = RecipeFood.create(quantity: 5, recipe: temp_recipe, food: foods[user_position][Random.rand(quantity_foods - 1)])
+    end
   end
 
 end
@@ -60,4 +63,4 @@ end
 puts "Created #{User.count} users"
 puts "Created #{Food.count} food items"
 puts "Created #{Recipe.count} recipes"
-puts "Created #{RecipeFood.count} recipes"
+puts "Created #{RecipeFood.count} recipe foods"

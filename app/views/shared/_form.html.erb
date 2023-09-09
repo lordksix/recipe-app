@@ -1,19 +1,19 @@
 <%= form_with model: recipe, data: { controller: "nested-form", nested_form_wrapper_selector_value: '.nested-form-wrapper' }, class: 'flex flex-col w-full max-w-3xl mx-auto gap-6 justify-center align-center' do |form| %>
   <div class="flex flex-col w-full max-w-3xl">
     <%= form.label :name %>
-    <%= form.text_field :name, class: 'w-full' %>
+    <%= form.text_field :name, required: true, class: 'w-full' %>
   </div>
   <div class="flex flex-col w-full max-w-3xl">
     <%= form.label :preparation_time %>
-    <%= form.text_field :preparation_time, class: 'w-full' %>
+    <%= form.text_field :preparation_time, required: true, class: 'w-full' %>
   </div>
   <div class="flex flex-col w-full max-w-3xl">
     <%= form.label :cooking_time %>
-    <%= form.text_field :cooking_time, class: 'w-full' %>
+    <%= form.text_field :cooking_time, required: true, class: 'w-full' %>
   </div>
   <div class="flex flex-col w-full max-w-3xl">
     <%= form.label :description %>
-    <%= form.text_field :description, class: 'w-full' %>
+    <%= form.text_field :description, required: true, class: 'w-full' %>
   </div>
 
   <div class="flex flex-col w-full max-w-3xl">
@@ -33,8 +33,10 @@
     <% end %>
 
     <div data-nested-form-target="target"></div>
+   <div class="flex items-center justify-start mb-6">
+      <button type="button" data-action="nested-form#add" class="px-4 py-2 border-2 border-black cursor:pointer">Add Ingredients</button>
+    </div>
 
-    <button type="button" data-action="nested-form#add" class="btn btn-primary align-self-end">Add Ingredients</button>
   </div>
   <div class="flex justify-center w-full max-w-3xl align-center">
     <%= form.submit class: 'px-4 py-2 border-2 border-black cursor:pointer mb-8' %>

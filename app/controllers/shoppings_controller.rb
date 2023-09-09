@@ -2,7 +2,7 @@ class ShoppingsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:foods, :recipe_foods).find(params[:id])
     @ingredients = get_ingredients(@recipe)
     @total_amount = @ingredients.reduce(0) do |acc, item|
       acc + item.price
